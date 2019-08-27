@@ -357,7 +357,7 @@ fmt.Printf("\nhere ---->%+v\n", req)
 	} else {
 		dec = xml.NewDecoder(res.Body)
 	}
-fmt.Printf("\nhere 2---->%+v\n", dec)
+fmt.Printf("\nhere 2---->%+vi %+v\n", res.Bod, mtomBoundaryy)
 	if err := dec.Decode(respEnvelope); err != nil {
 		return err
 	}
