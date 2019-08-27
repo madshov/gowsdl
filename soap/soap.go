@@ -367,6 +367,6 @@ fmt.Printf("\nhere 3---->%+v\n", req)
 	if fault != nil {
 		return fault
 	}
-
+fmt.Printf("\nhere 4---->%+v\n", fault)
 	return nil
 }
