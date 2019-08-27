@@ -341,6 +341,7 @@ fmt.Printf("\n---->%+v\n", req)
 	if err != nil {
 		return err
 	}
+fmt.Printf("\nhere ---->%+v\n", req)
 	defer res.Body.Close()
 
 	respEnvelope := new(SOAPEnvelope)
@@ -350,7 +351,7 @@ fmt.Printf("\n---->%+v\n", req)
 	if err != nil {
 		return err
 	}
-
+fmt.Printf("\nhere 2---->%+v\n", req)
 	var dec SOAPDecoder
 	if mtomBoundary != "" {
 		dec = newMtomDecoder(res.Body, mtomBoundary)
@@ -361,7 +362,7 @@ fmt.Printf("\n---->%+v\n", req)
 	if err := dec.Decode(respEnvelope); err != nil {
 		return err
 	}
-
+fmt.Printf("\nhere 3---->%+v\n", req)
 	fault := respEnvelope.Body.Fault
 	if fault != nil {
 		return fault
