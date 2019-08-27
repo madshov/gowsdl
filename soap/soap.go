@@ -351,13 +351,16 @@ fmt.Printf("\nhere ---->%+v\n", req)
 	if err != nil {
 		return err
 	}
+bodyBytes, _ := ioutil.ReadAll(res.Body)
+    bodyString := string(bodyBytes)
+    fmt.Printf("\nhere 5---->%+v\n", bodyString)
 	var dec SOAPDecoder
 	if mtomBoundary != "" {
 		dec = newMtomDecoder(res.Body, mtomBoundary)
 	} else {
 		dec = xml.NewDecoder(res.Body)
 	}
-fmt.Printf("\nhere 2---->%+vi %+v\n", res.Body, mtomBoundary)
+fmt.Printf("\nhere 2---->%+v %+v\n", res.Body, mtomBoundary)
 	if err := dec.Decode(respEnvelope); err != nil {
 		return err
 	}
