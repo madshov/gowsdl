@@ -351,18 +351,17 @@ fmt.Printf("\nhere ---->%+v\n", req)
 	if err != nil {
 		return err
 	}
-fmt.Printf("\nhere 2---->%+v\n", req)
 	var dec SOAPDecoder
 	if mtomBoundary != "" {
 		dec = newMtomDecoder(res.Body, mtomBoundary)
 	} else {
 		dec = xml.NewDecoder(res.Body)
 	}
-
+fmt.Printf("\nhere 2---->%+v\n", dec)
 	if err := dec.Decode(respEnvelope); err != nil {
 		return err
 	}
-fmt.Printf("\nhere 3---->%+v\n", req)
+fmt.Printf("\nhere 3---->%+v %+v\n", respEnvelope.Body, respEnvelope)
 	fault := respEnvelope.Body.Fault
 	fmt.Printf("\nhere 4---->%+v\n", fault)
 	if fault != nil {
