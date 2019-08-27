@@ -336,7 +336,7 @@ func (s *Client) call(ctx context.Context, soapAction string, request, response 
 		}
 		client = &http.Client{Timeout: s.opts.contimeout, Transport: tr}
 	}
-//fmt.Printf("\n---->%+v\n", req)
+fmt.Printf("\n---->%+v\n", req)
 	res, err := client.Do(req)
 	if err != nil {
 		return err
