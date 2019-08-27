@@ -9,6 +9,7 @@ import (
 	"net"
 	"net/http"
 	"time"
+	"io/ioutil"
 )
 
 type SOAPEncoder interface {
