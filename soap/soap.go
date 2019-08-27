@@ -278,7 +278,7 @@ func (s *Client) Call(soapAction string, request, response interface{}) error {
 
 func (s *Client) call(ctx context.Context, soapAction string, request, response interface{}) error {
 	envelope := SOAPEnvelope{}
-
+fmt.Printf("\n---->%+v\n", request)
 	if s.headers != nil && len(s.headers) > 0 {
 		envelope.Headers = s.headers
 	}
