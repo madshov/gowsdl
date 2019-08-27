@@ -364,9 +364,9 @@ fmt.Printf("\nhere 2---->%+v\n", req)
 	}
 fmt.Printf("\nhere 3---->%+v\n", req)
 	fault := respEnvelope.Body.Fault
+	fmt.Printf("\nhere 4---->%+v\n", fault)
 	if fault != nil {
 		return fault
 	}
-fmt.Printf("\nhere 4---->%+v\n", fault)
 	return nil
 }
