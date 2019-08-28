@@ -263,7 +263,7 @@ func (s *Client) Call(soapAction string, request, response interface{}) error {
 		},
 	}
 
-	client := &http.Client{Transport: tr}i
+	client := &http.Client{Transport: tr}
 	fmr.Printf("\n---------------->%+v\n", req);
 	res, err := client.Do(req)
 	if err != nil {
