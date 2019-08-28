@@ -8,6 +8,8 @@ import (
 	"net"
 	"net/http"
 	"time"
+	"fmt"
+	"io/ioutil"
 )
 
 type SOAPEnvelope struct {
