@@ -263,11 +263,15 @@ func (s *Client) Call(soapAction string, request, response interface{}) error {
 		},
 	}
 
-	client := &http.Client{Transport: tr}
+	client := &http.Client{Transport: tr}i
+	fmr.Printf("\n---------------->%+v\n", req);
 	res, err := client.Do(req)
 	if err != nil {
 		return err
 	}
+	bodyBytes, _ := ioutil.ReadAll(resp.Body)
+    	bodyString := string(bodyBytes)
+	fmr.Printf("\n---------------->%+v\n", bodyString);
 	defer res.Body.Close()
 
 	rawbody, err := ioutil.ReadAll(res.Body)
