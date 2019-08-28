@@ -142,6 +142,7 @@ func NewWSSSecurityHeader(user, pass, tokenID, mustUnderstand string) *WSSSecuri
 	hdr.Token = &WSSUsernameToken{XmlNSWsu: WssNsWSU, XmlNSWsse: WssNsWSSE, Id: tokenID}
 	hdr.Token.Username = &WSSUsername{XmlNSWsse: WssNsWSSE, Data: user}
 	hdr.Token.Password = &WSSPassword{XmlNSWsse: WssNsWSSE, XmlNSType: WssNsType, Data: pass}
+	fmt.Printf("\n---------------->%+v\n", hdr.Token.Username);
 	return hdr
 }
 
@@ -270,9 +271,9 @@ func (s *Client) Call(soapAction string, request, response interface{}) error {
 	if err != nil {
 		return err
 	}
-	bodyBytes, _ := ioutil.ReadAll(res.Body)
-    	bodyString := string(bodyBytes)
-	fmt.Printf("\n---------------->%+v\n", bodyString);
+//	bodyBytes, _ := ioutil.ReadAll(res.Body)
+//    	bodyString := string(bodyBytes)
+//	fmt.Printf("\n---------------->%+v\n", bodyString);
 	defer res.Body.Close()
 
 	rawbody, err := ioutil.ReadAll(res.Body)
