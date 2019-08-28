@@ -264,14 +264,14 @@ func (s *Client) Call(soapAction string, request, response interface{}) error {
 	}
 
 	client := &http.Client{Transport: tr}
-	fmr.Printf("\n---------------->%+v\n", req);
+	fmt.Printf("\n---------------->%+v\n", req);
 	res, err := client.Do(req)
 	if err != nil {
 		return err
 	}
-	bodyBytes, _ := ioutil.ReadAll(resp.Body)
+	bodyBytes, _ := ioutil.ReadAll(res.Body)
     	bodyString := string(bodyBytes)
-	fmr.Printf("\n---------------->%+v\n", bodyString);
+	fmt.Printf("\n---------------->%+v\n", bodyString);
 	defer res.Body.Close()
 
 	rawbody, err := ioutil.ReadAll(res.Body)
